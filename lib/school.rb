@@ -1,15 +1,15 @@
 class School
   
-    def initialize(breed)
-        @breed = breed
+    def initialize(school)
+        @school = school
     end
  
-    def breed=(breed)
-        @breed = breed
+    def school=(school)
+        @school = school
     end
  
-    def breed
-        @breed
+    def school
+        @school
     end
 
 end
