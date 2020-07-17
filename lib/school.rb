@@ -9,13 +9,8 @@ class School
   end
 
   def add_student(name, grade)
-    if @roster[grade]
-      @roster[grade].push(name)
-    else
-      name_array = []
-      name_array.push(name)
-      @roster[grade] = name_array
-    end
+    @roster[grade] ||= []
+    @roster[grade] << name
   end
 
   def grade(grade)
@@ -23,8 +18,7 @@ class School
   end
 
   def sort
-  @roster.each {|grade, array_student_names|
-    @roster[grade] = array_student_names.sort()}
+    @roster.each {|k, v| v.sort!}
   end
 
 end
