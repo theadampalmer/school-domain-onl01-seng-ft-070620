@@ -1,15 +1,30 @@
+require 'pry'
+
 class School
-  
-    def initialize(school)
-        @school = school
+  attr_accessor :school, :roster
+
+  def initialize(school)
+    @school = school
+    @roster = {}
+  end
+
+  def add_student(name, grade)
+    if @roster[grade]
+      @roster[grade].push(name)
+    else
+      name_array = []
+      name_array.push(name)
+      @roster[grade] = name_array
     end
- 
-    def school=(school)
-        @school = school
-    end
- 
-    def school
-        @school
-    end
+  end
+
+  def grade(grade)
+    @roster[grade]
+  end
+
+  def sort
+  @roster.each {|grade, array_student_names|
+    @roster[grade] = array_student_names.sort()}
+  end
 
 end
